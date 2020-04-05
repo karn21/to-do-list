@@ -30,14 +30,26 @@ export class App extends Component {
     });
   };
   handleEdit = (id) => {
+    const editItem = this.state.items.filter((item) => item.id === id);
+    const updatedItems = this.state.items.filter((item) => item.id !== id);
+    this.setState({
+      items: updatedItems,
+      item: editItem.task,
+      editItem: true,
+    });
     console.log(`handle Edit ${id}`);
   };
   handleDelete = (id) => {
-    console.log(`handle Delete ${id}`);
+    const updatedItems = this.state.items.filter((item) => item.id !== id);
+    this.setState({
+      items: updatedItems,
+    });
   };
 
   clearList = () => {
-    console.log("List CLeared");
+    this.setState({
+      items: [],
+    });
   };
 
   render() {
