@@ -29,11 +29,11 @@ export class App extends Component {
       editItem: false,
     });
   };
-  handleEdit = () => {
-    console.log("handle Edit");
+  handleEdit = (id) => {
+    console.log(`handle Edit ${id}`);
   };
-  handleDelete = () => {
-    console.log("handle Delete");
+  handleDelete = (id) => {
+    console.log(`handle Delete ${id}`);
   };
 
   clearList = () => {
@@ -52,14 +52,15 @@ export class App extends Component {
               handleSubmit={this.handleSubmit}
             ></TodoInput>
           </div>
+          <div className="col-10 col-md-8 offset-1 offset-md-2">
+            <TodoList
+              items={this.state.items}
+              clearList={this.clearList}
+              handleEdit={this.handleEdit}
+              handleDelete={this.handleDelete}
+            ></TodoList>
+          </div>
         </div>
-
-        <TodoList
-          items={this.state.items}
-          clearList={this.clearList}
-          handleEdit={this.handleEdit}
-          handleDelete={this.handleDelete}
-        ></TodoList>
       </div>
     );
   }
