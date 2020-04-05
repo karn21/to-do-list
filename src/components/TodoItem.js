@@ -2,9 +2,10 @@ import React, { Component } from "react";
 
 export class TodoItem extends Component {
   render() {
+    const { task, handleDelete, handleEdit } = this.props;
     return (
       <div>
-        <h2>TodoItem</h2>
+        <p>{task}</p>
       </div>
     );
   }

@@ -36,12 +36,16 @@ export class App extends Component {
     console.log("handle Delete");
   };
 
+  clearList = () => {
+    console.log("List CLeared");
+  };
+
   render() {
     return (
       <div className="container">
+        <h3 className="text-capitalize text-center mt-5 mb-2">todo Input</h3>
         <div className="row">
-          <div className="col-10 col-md-8 offset-1 mt-3">
-            <h3 className="text-capitalize text-center">todo Input</h3>
+          <div className="col-10 col-md-8 offset-1 offset-md-2">
             <TodoInput
               item={this.state.item}
               handleChange={this.handleChange}
@@ -50,7 +54,12 @@ export class App extends Component {
           </div>
         </div>
 
-        <TodoList></TodoList>
+        <TodoList
+          items={this.state.items}
+          clearList={this.clearList}
+          handleEdit={this.handleEdit}
+          handleDelete={this.handleDelete}
+        ></TodoList>
       </div>
     );
   }
