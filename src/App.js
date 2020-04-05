@@ -30,11 +30,12 @@ export class App extends Component {
     });
   };
   handleEdit = (id) => {
-    const editItem = this.state.items.filter((item) => item.id === id);
+    const selectedItem = this.state.items.find((item) => item.id === id);
     const updatedItems = this.state.items.filter((item) => item.id !== id);
     this.setState({
       items: updatedItems,
-      item: editItem.task,
+      item: selectedItem.task,
+      id: id,
       editItem: true,
     });
     console.log(`handle Edit ${id}`);
@@ -62,6 +63,7 @@ export class App extends Component {
               item={this.state.item}
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}
+              editItem={this.state.editItem}
             ></TodoInput>
           </div>
           <div className="col-10 col-md-8 offset-1 offset-md-2">

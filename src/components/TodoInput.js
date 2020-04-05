@@ -21,21 +21,17 @@ export class TodoInput extends Component {
               value={item}
             />
           </div>
-          {editItem ? (
-            <button
-              className="btn-primarysecondary btn btn-block mt-4 text-uppercase"
-              type="btn"
-            >
-              Update Item
-            </button>
-          ) : (
-            <button
-              className="btn-primary btn btn-block mt-4 text-uppercase"
-              type="btn"
-            >
-              Add Item
-            </button>
-          )}
+          <button
+            disabled={item ? false : true}
+            className={
+              editItem
+                ? "btn-info btn btn-block mt-4 text-uppercase"
+                : "btn-primary btn btn-block mt-4 text-uppercase"
+            }
+            type="btn"
+          >
+            {editItem ? "Update Item" : "Add Item"}
+          </button>
         </form>
       </div>
     );
